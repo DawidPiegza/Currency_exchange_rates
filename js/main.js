@@ -15,17 +15,12 @@ let startDate = datePicker.value;
 let URL = apiLink + startDate + '/';
 let newArray = [];
 const btnConfirm = document.querySelector('.confirm-button');
-const odpowiedz = document.querySelector('.odp');
+const currencyContainer = document.querySelector('.currency-container');
 
 const apiPromise = () =>
 	new Promise((resolve, reject) => {
 		if (newArray.length > 0) {
-			resolve(
-				newArray.forEach(
-					(element) =>
-						(odpowiedz.innerText += `${element.currency}: ${element.mid}`)
-				)
-			);
+			resolve(addViewCurrency());
 		} else reject(console.log('Waiting for specyfic data...'));
 	});
 
@@ -42,13 +37,23 @@ connectApi = () => {
 		});
 };
 
-const clearEverything = () => {
-	(newArray = []), (odpowiedz.innerText = '');
+// const clearEverything = () => {
+// 	(newArray = []), (odpowiedz.innerText = '');
+// };
+
+const addViewCurrency = () => {
+	for (let index = 0; index < newArray.length; index++) {
+		var p = document.createElement('p');
+		p.className = 'row';
+		var names = `WALUTA: ${newArray[index].currency} ${newArray[index].code} KURS: ${newArray[index].mid}`;
+		p.innerText = names;
+		currencyContainer.append(p);
+	}
 };
 
 btnConfirm.addEventListener('click', () => {
 	startDate = datePicker.value;
 	URL = apiLink + startDate + '/';
-	clearEverything();
+	// clearEverything();
 	connectApi();
 });
