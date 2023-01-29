@@ -20,8 +20,13 @@ const odpowiedz = document.querySelector('.odp');
 const apiPromise = () =>
 	new Promise((resolve, reject) => {
 		if (newArray.length > 0) {
-			resolve((odpowiedz.innerText = newArray[3].currency));
-		} else reject('Waiting for specyfic data...');
+			resolve(
+				newArray.forEach(
+					(element) =>
+						(odpowiedz.innerText += `${element.currency}: ${element.mid}`)
+				)
+			);
+		} else reject(console.log('Waiting for specyfic data...'));
 	});
 
 connectApi = () => {
@@ -29,7 +34,6 @@ connectApi = () => {
 		.then((res) => res.json())
 		.then((data) =>
 			data[0].rates.forEach((element) => {
-				console.log(element);
 				newArray.push(element);
 			})
 		)
@@ -38,4 +42,13 @@ connectApi = () => {
 		});
 };
 
-btnConfirm.addEventListener('click', connectApi);
+const clearEverything = () => {
+	(newArray = []), (odpowiedz.innerText = '');
+};
+
+btnConfirm.addEventListener('click', () => {
+	startDate = datePicker.value;
+	URL = apiLink + startDate + '/';
+	clearEverything();
+	connectApi();
+});
