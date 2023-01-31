@@ -16,6 +16,7 @@ let URL = apiLink + startDate + '/';
 let newArray = [];
 const btnConfirm = document.querySelector('.confirm-button');
 const currencyContainer = document.querySelector('.currency-container');
+let arajka;
 
 const apiPromise = () =>
 	new Promise((resolve, reject) => {
@@ -64,6 +65,12 @@ const addViewCurrency = () => {
 		currencyContainer.append(div);
 		div.append(p1, p2);
 	}
+	divClassAdd();
+};
+
+const divClassAdd = () => {
+	let currencyDivs = document.getElementsByClassName('currency-div');
+	arajka = Array.from(currencyDivs);
 };
 
 btnConfirm.addEventListener('click', () => {
