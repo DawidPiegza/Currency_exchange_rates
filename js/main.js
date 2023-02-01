@@ -16,7 +16,8 @@ let URL = apiLink + startDate + '/';
 let newArray = [];
 const btnConfirm = document.querySelector('.confirm-button');
 const currencyContainer = document.querySelector('.currency-container');
-let arajka;
+const calculatorDropdown1 = document.querySelector('#curr');
+let arrayOfCurrencyDivs;
 
 const apiPromise = () =>
 	new Promise((resolve, reject) => {
@@ -41,6 +42,7 @@ const connectApi = () => {
 const clearEverything = () => {
 	clearPage();
 	newArray = [];
+	arrayOfCurrencyDivs = [];
 };
 
 const clearPage = () => {
@@ -51,6 +53,16 @@ const clearPage = () => {
 };
 
 const addViewCurrency = () => {
+	let tittle = document.createElement('div');
+	tittle.className = 'tittle-div';
+	let p01 = document.createElement('p');
+	p01.className = 'first-row';
+	let p02 = document.createElement('p');
+	p02.className = 'second-row';
+	p01.innerText = 'WALUTA:';
+	p02.innerText = 'KURS:';
+	currencyContainer.append(tittle);
+	tittle.append(p01, p02);
 	for (let index = 0; index < newArray.length; index++) {
 		let div = document.createElement('div');
 		div.className = 'currency-div';
@@ -58,8 +70,8 @@ const addViewCurrency = () => {
 		p1.className = 'first-row';
 		let p2 = document.createElement('p');
 		p2.className = 'second-row';
-		let currency = `WALUTA: ${newArray[index].currency} (${newArray[index].code}) `;
-		let value = `KURS: ${newArray[index].mid}`;
+		let currency = `${newArray[index].currency} (${newArray[index].code}) `;
+		let value = `${newArray[index].mid}`;
 		p1.innerText = currency;
 		p2.innerText = value;
 		currencyContainer.append(div);
@@ -70,7 +82,15 @@ const addViewCurrency = () => {
 
 const divClassAdd = () => {
 	let currencyDivs = document.getElementsByClassName('currency-div');
-	arajka = Array.from(currencyDivs);
+	arrayOfCurrencyDivs = Array.from(currencyDivs);
+	calculatorDropdown1.replaceChildren();
+	for (let index = 0; index < arrayOfCurrencyDivs.length; index++) {
+		let newOption = document.createElement('Option');
+		let textValue = arrayOfCurrencyDivs[index].innerText;
+		let newOptionValue = document.createTextNode(textValue);
+		newOption.appendChild(newOptionValue);
+		calculatorDropdown1.appendChild(newOption);
+	}
 };
 
 btnConfirm.addEventListener('click', () => {
