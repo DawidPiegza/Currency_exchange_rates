@@ -20,15 +20,8 @@
 	<body>
 		<header>
 			<div class="logo">
-				<i class="ti ti-brand-cashapp"></i>
 				<p>Kursy Walut</p>
 			</div>
-			<input
-				type="search"
-				class="searchInput"
-				placeholder="Szukaj waluty..."
-				onkeyup="search_animal()"
-			/>
 		</header>
 		<main>
 			<div class="date-input">
@@ -44,18 +37,17 @@
 				<button class="confirm-button">Zatwierdź</button>
 			</div>
 			<div class="display-container">
-				<div class="currency-container"></div>
 				<div class="currency-calculator">
 					<form action="#" class="form1">
-						<label for="curr">Wymień z waluty:</label>
-						<select name="currency" id="curr"></select>
-					</form>
-					<form action="#" class="form1">
-						<label for="curr">Wymień na:</label>
-						<select name="currency" id="curr"></select>
+						<label for="curr2">Wymień na:</label>
+						<select name="currency" id="curr2"></select>
+						<label for="qtyMoney">Ilość:</label>
+						<input id="qtyMoney" type="number" min="0" />
 					</form>
 					<button class="count-button">Przelicz</button>
+					<p class="resault">Otrzymasz:</p>
 				</div>
+				<div class="currency-container"></div>
 			</div>
 		</main>
 		<script src="/js/main.js"></script>

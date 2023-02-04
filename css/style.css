@@ -88,7 +88,7 @@ body header {
   padding: 0px 100px;
   font-size: 24px;
   font-weight: bold;
-  box-shadow: 0px 10px 10px 0px rgb(66, 68, 90);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 body header .logo {
   display: flex;
@@ -191,24 +191,29 @@ body main .display-container .currency-container .tittle-div {
 body main .display-container .currency-calculator {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   margin: 50px 0px;
   width: 500px;
   align-items: center;
   row-gap: 30px;
+  height: 400px;
 }
 body main .display-container .currency-calculator .form1 {
   display: flex;
   flex-direction: column;
   height: 100px;
-  justify-content: space-around;
+  row-gap: 25px;
   align-items: center;
   width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 body main .display-container .currency-calculator .form1 label {
   font-size: 19px;
 }
-body main .display-container .currency-calculator .form1 #curr {
+body main .display-container .currency-calculator .form1 #curr2,
+body main .display-container .currency-calculator .form1 #qtyMoney {
   border-radius: 20px;
   border: 3px solid #094067;
   width: 100%;
@@ -231,4 +236,8 @@ body main .display-container .currency-calculator .count-button {
 }
 body main .display-container .currency-calculator .count-button:hover {
   background-color: #035fa5;
+}
+body main .display-container .currency-calculator .resault {
+  font-size: 24px;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */

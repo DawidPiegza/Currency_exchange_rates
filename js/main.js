@@ -15,8 +15,12 @@ let startDate = datePicker.value;
 let URL = apiLink + startDate + '/';
 let newArray = [];
 const btnConfirm = document.querySelector('.confirm-button');
+const btnCount = document.querySelector('.count-button');
 const currencyContainer = document.querySelector('.currency-container');
-const calculatorDropdown1 = document.querySelector('#curr');
+const calculatorDropdown1 = document.querySelector('#curr1');
+const calculatorDropdown2 = document.querySelector('#curr2');
+const moneySum = document.querySelector('.resault');
+let moneyQuantity = document.querySelector('#qtyMoney');
 let arrayOfCurrencyDivs;
 
 const apiPromise = () =>
@@ -83,14 +87,24 @@ const addViewCurrency = () => {
 const divClassAdd = () => {
 	let currencyDivs = document.getElementsByClassName('currency-div');
 	arrayOfCurrencyDivs = Array.from(currencyDivs);
-	calculatorDropdown1.replaceChildren();
+	calculatorDropdown2.replaceChildren();
 	for (let index = 0; index < arrayOfCurrencyDivs.length; index++) {
 		let newOption = document.createElement('Option');
 		let textValue = arrayOfCurrencyDivs[index].innerText;
 		let newOptionValue = document.createTextNode(textValue);
 		newOption.appendChild(newOptionValue);
-		calculatorDropdown1.appendChild(newOption);
+		calculatorDropdown2.appendChild(newOption);
 	}
+};
+
+const calculateMoney = () => {
+	let box2Value = document.getElementById('curr2').value;
+	let Value2Replaced = parseFloat(box2Value.replace(/[^\d\.]*/g, ''));
+	console.log(Value2Replaced);
+	let sum = moneyQuantity.value / Value2Replaced;
+	console.log(sum);
+	moneySum.innerText = 'Otrzymasz:';
+	moneySum.innerText += ` ${sum.toFixed(2)} `;
 };
 
 btnConfirm.addEventListener('click', () => {
@@ -99,3 +113,4 @@ btnConfirm.addEventListener('click', () => {
 	clearEverything();
 	connectApi();
 });
+btnCount.addEventListener('click', calculateMoney);
