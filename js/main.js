@@ -114,3 +114,4 @@ btnConfirm.addEventListener('click', () => {
 	connectApi();
 });
 btnCount.addEventListener('click', calculateMoney);
+

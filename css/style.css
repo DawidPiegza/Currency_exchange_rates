@@ -81,30 +81,29 @@ body header {
   display: flex;
   flex-direction: row;
   width: 100%;
-  max-width: 1920px;
   height: 80px;
   align-items: center;
-  justify-content: space-between;
   padding: 0px 100px;
   font-size: 24px;
   font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
+@media (max-width: 767.98px) {
+  body header {
+    height: 60px;
+    font-size: 20px;
+    padding: 0 25px;
+  }
+}
+@media (max-width: 575.98px) {
+  body header {
+    padding: 0 10px;
+  }
+}
 body header .logo {
   display: flex;
-  align-items: center;
-}
-body header .searchInput {
-  border-radius: 20px;
-  border: 3px solid #094067;
-  width: 200px;
-  height: 40px;
-  padding: 10px;
-  font-size: 19px;
-  text-align: center;
-}
-body header i {
-  font-size: 36px;
+  width: 100%;
+  max-width: 1920px;
 }
 body main {
   display: flex;
@@ -113,6 +112,16 @@ body main {
   width: 100%;
   max-width: 1920px;
   padding: 0px 100px;
+}
+@media (max-width: 767.98px) {
+  body main {
+    padding: 0 25px;
+  }
+}
+@media (max-width: 575.98px) {
+  body main {
+    padding: 0 10px;
+  }
 }
 body main .date-input {
   margin-top: 50px;
@@ -124,16 +133,33 @@ body main .date-input {
   justify-content: space-evenly;
   padding: 0px 100px;
 }
+@media (max-width: 575.98px) {
+  body main .date-input {
+    padding: 0;
+  }
+}
+@media (max-width: 767.98px) {
+  body main .date-input {
+    margin-top: 25px;
+  }
+}
 body main .date-input .confirm-button {
   width: 150px;
   height: 60px;
   border: none;
   border-radius: 30px;
-  font-size: 19px;
+  font-size: 18px;
   color: #fffffe;
   background-color: #3da9fc;
   cursor: pointer;
   transition: all 0.3s ease-in;
+}
+@media (max-width: 767.98px) {
+  body main .date-input .confirm-button {
+    font-size: 16px;
+    width: 100px;
+    height: 40px;
+  }
 }
 body main .date-input .confirm-button:hover {
   background-color: #035fa5;
@@ -141,6 +167,11 @@ body main .date-input .confirm-button:hover {
 body main .date-input label {
   font-size: 18px;
   display: block;
+}
+@media (max-width: 767.98px) {
+  body main .date-input label {
+    font-size: 16px;
+  }
 }
 body main .date-input input {
   display: block;
@@ -150,24 +181,52 @@ body main .date-input input {
   color: #094067;
   font-weight: bold;
 }
+@media (max-width: 767.98px) {
+  body main .date-input input {
+    font-size: 16px;
+  }
+}
 body main .display-container {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
 }
+@media (max-width: 1199.98px) {
+  body main .display-container {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+}
 body main .display-container .currency-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  width: 1000px;
+  width: 60%;
   flex-wrap: wrap;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
   font-size: 18px;
   margin-top: 50px;
+}
+@media (max-width: 1199.98px) {
+  body main .display-container .currency-container {
+    width: 100%;
+  }
+}
+@media (max-width: 767.98px) {
+  body main .display-container .currency-container {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 575.98px) {
+  body main .display-container .currency-container {
+    font-size: 14px;
+  }
 }
 body main .display-container .currency-container .currency-div,
 body main .display-container .currency-container .tittle-div {
@@ -185,6 +244,13 @@ body main .display-container .currency-container .tittle-div {
   transition: all 0.3s ease-in;
   border-bottom: 2px solid #fffffe;
 }
+@media (max-width: 767.98px) {
+  body main .display-container .currency-container .currency-div,
+body main .display-container .currency-container .tittle-div {
+    padding: 10px;
+    height: 60px;
+  }
+}
 body main .display-container .currency-container .tittle-div {
   background-color: #035fa5;
 }
@@ -193,15 +259,34 @@ body main .display-container .currency-calculator {
   flex-direction: column;
   justify-content: space-between;
   margin: 50px 0px;
-  width: 500px;
+  width: 35%;
   align-items: center;
   row-gap: 30px;
-  height: 400px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+@media (max-width: 991.98px) {
+  body main .display-container .currency-calculator {
+    width: 75%;
+    margin: 25px 0px;
+  }
+}
+@media (max-width: 767.98px) {
+  body main .display-container .currency-calculator {
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+  }
+}
+@media (max-width: 575.98px) {
+  body main .display-container .currency-calculator {
+    width: 100%;
+  }
 }
 body main .display-container .currency-calculator .form1 {
   display: flex;
   flex-direction: column;
-  height: 100px;
   row-gap: 25px;
   align-items: center;
   width: 100%;
@@ -210,7 +295,12 @@ body main .display-container .currency-calculator .form1 {
   height: max-content;
 }
 body main .display-container .currency-calculator .form1 label {
-  font-size: 19px;
+  font-size: 18px;
+}
+@media (max-width: 767.98px) {
+  body main .display-container .currency-calculator .form1 label {
+    font-size: 16px;
+  }
 }
 body main .display-container .currency-calculator .form1 #curr2,
 body main .display-container .currency-calculator .form1 #qtyMoney {
@@ -223,16 +313,37 @@ body main .display-container .currency-calculator .form1 #qtyMoney {
   text-align: center;
   background-color: #fffffe;
 }
+@media (max-width: 767.98px) {
+  body main .display-container .currency-calculator .form1 #curr2,
+body main .display-container .currency-calculator .form1 #qtyMoney {
+    height: 50px;
+    width: 70%;
+    font-size: 14px;
+  }
+}
+@media (max-width: 575.98px) {
+  body main .display-container .currency-calculator .form1 #curr2,
+body main .display-container .currency-calculator .form1 #qtyMoney {
+    width: 60%;
+  }
+}
 body main .display-container .currency-calculator .count-button {
   width: 150px;
   height: 60px;
   border: none;
   border-radius: 30px;
-  font-size: 19px;
+  font-size: 18px;
   color: #fffffe;
   background-color: #3da9fc;
   cursor: pointer;
   transition: all 0.3s ease-in;
+}
+@media (max-width: 767.98px) {
+  body main .display-container .currency-calculator .count-button {
+    font-size: 16px;
+    width: 100px;
+    height: 40px;
+  }
 }
 body main .display-container .currency-calculator .count-button:hover {
   background-color: #035fa5;
@@ -240,4 +351,9 @@ body main .display-container .currency-calculator .count-button:hover {
 body main .display-container .currency-calculator .resault {
   font-size: 24px;
   font-weight: bold;
+}
+@media (max-width: 767.98px) {
+  body main .display-container .currency-calculator .resault {
+    font-size: 16px;
+  }
 }/*# sourceMappingURL=style.css.map */
